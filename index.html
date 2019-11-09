@@ -4,9 +4,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-
 <div class="container">
     <div class="jumbotron header">Header</div>
     <form>
@@ -40,9 +37,26 @@
   </div>
   </body>
   <script>
-  var queryURL = `"https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + ${query} + "&fq=" + ${filter} + " &api-key=qZTQD6ALkuDPTjzo8r2E9NWbwTfyV8Ry"`;
-  var query = "";
-  var filter = $("#articleSearchTerm").val(e);
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script>
   
+  $("#searchbutton").on("click", function(){
+    var query = $("#articleSearchTerm").val();
+var queryURL =`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=qZTQD6ALkuDPTjzo8r2E9NWbwTfyV8Ry`;
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  })
+  .then( function(response) {
+    console.log(response)
+    // console.log(response.numberofrecordstoretrieve)
+    // console.log(response.startdate)
+    // console.log(enddate)
+    for( i = 0; i < 5; i++) {
+    }
+  })
+  })
   </script>
 </html>
